@@ -59,17 +59,38 @@ export default {
     },
 
     head() {
-      return {
-        title: this.title,
-        meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          {
-            hid: 'og-',
-            property: 'og:title',
-            content: '&#12644; &#x3164; '
-          }
-        ]
-      }
+        return {
+            title: this.metadata.title,
+            meta: [
+                {
+                    hid: 'og-title',
+                    property: 'og:title',
+                    content: '&#12644; &#x3164;',
+                },
+                {
+                    hid: 'og-type',
+                    property: 'og:type',
+                    content: 'article',
+                },
+                {
+                    hid: 'og-url',
+                    property: 'og:url',
+                    content: this.path,
+                },
+                {
+                    hid: 'og-description',
+                    property: 'og:description',
+                    content: '...',
+                },
+
+                {
+                    hid: 'og-image',
+                    property: 'og:image',
+                    content: this.metadata.featured_img_url,
+                },
+
+            ]
+        }
     }
 }
 </script>
